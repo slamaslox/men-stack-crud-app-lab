@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Plants Index</title>
+  </head>
+
+  <body>
+    <div class="index-header-div">
+      <h1>All Plants</h1>
+      <a class="add-plant" href="/plants/new">Add New</a>
+    </div>
+    <ul>
+      <% plants.forEach(plant=> { %>
+      <li>
+        <a class="plant-cards" href="/plants/<%= plant._id %>"
+          ><%= plant.name %></a
+        >
+      </li>
+      <% }); %>
+    </ul>
+    <a href="../">Back to Home</a>
+  </body>
+</html>

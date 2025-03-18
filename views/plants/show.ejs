@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Fruit Show Page</title>
+  </head>
+
+  <body>
+    <h1><%= plant.name %></h1>
+
+    <p><strong>Species:</strong> <%= plant.species %></p>
+    <p><strong>Watering Schedule:</strong> <%= plant.wateringSchedule %></p>
+    <p><strong>Light Requirements:</strong> <%= plant.lightRequirements %></p>
+
+    <a href="/plants/<%= plant._id %>/edit">Edit</a>
+    <form
+      action="/plants/<%= plant._id %>?_method=DELETE"
+      method="POST"
+      style="display: inline"
+    >
+      <button type="submit">Delete</button>
+    </form>
+
+    <br /><br />
+    <a href="/plants">Back to Plant List</a>
+  </body>
+</html>

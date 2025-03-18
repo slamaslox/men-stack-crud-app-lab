@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Edit <%= plant.name %></title>
+</head>
+<body>
+    <h1>Edit <%= plant.name %></h1>
+
+    <form action="/plants/<%= plant._id %>?_method=PUT" method="POST">
+        <label for="name">Plant Name:</label>
+        <input type="text" id="name" name="name" value="<%= plant.name %>" required>
+
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" value="<%= plant.species %>">
+
+        <label for="wateringSchedule">Watering Schedule:</label>
+        <select id="wateringSchedule" name="wateringSchedule" required>
+            <option value="Daily" <%= plant.wateringSchedule === "Daily" ? "selected" : "" %>>Daily</option>
+            <option value="Every 2 days" <%= plant.wateringSchedule === "Every 2 days" ? "selected" : "" %>>Every 2 days</option>
+            <option value="Weekly" <%= plant.wateringSchedule === "Weekly" ? "selected" : "" %>>Weekly</option>
+            <option value="Biweekly" <%= plant.wateringSchedule === "Biweekly" ? "selected" : "" %>>Biweekly</option>
+            <option value="Monthly" <%= plant.wateringSchedule === "Monthly" ? "selected" : "" %>>Monthly</option>
+        </select>
+
+        <label for="lightRequirements">Light Requirements:</label>
+        <select id="lightRequirements" name="lightRequirements" required>
+            <option value="Full sun" <%= plant.lightRequirements === "Full sun" ? "selected" : "" %>>Full sun</option>
+            <option value="Partial sun" <%= plant.lightRequirements === "Partial sun" ? "selected" : "" %>>Partial sun</option>
+            <option value="Shade" <%= plant.lightRequirements === "Shade" ? "selected" : "" %>>Shade</option>
+        </select>
+
+        <button type="submit">Update Plant</button>
+    </form>
+
+    <br>
+    <a href="/plants/<%= plant._id %>">Cancel</a>
+</body>
+</html>
