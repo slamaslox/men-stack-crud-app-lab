@@ -36,6 +36,9 @@
     </form>
 
     <br>
-    <a href="/plants/<%= plant._id %>">Cancel</a>
+    <form action="/plants/<%= plant._id %>" method="GET" style="display:inline;">
+        <button type="submit">Cancel</button>
+    </form>
+    
 </body>
 </html>
